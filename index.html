@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PolyglotAcademy - Plateforme Complète | BETTAHAR Abdelkrim</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 1.5rem 2rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-btn {
+            padding: 0.75rem 1.5rem;
+            background: white;
+            border: 2px solid #667eea;
+            border-radius: 25px;
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .nav-btn:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 6rem 2rem;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        .language-header {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 1rem;
+        }
+
+        .flag {
+            font-size: 4rem;
+        }
+
+        .language-title {
+            font-size: 2.5rem;
+            color: #667eea;
+        }
+
+        .level-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 1.5rem;
+            border: none;
+            border-radius: 15px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            cursor: pointer;
+            margin-bottom: 1rem;
+            transition: all 0.3s;
+        }
+
+        .level-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+        }
+
+        .level-content {
+            display: none;
+            margin-top: 1rem;
+            padding: 2rem;
+            background: #f8f9fa;
+            border-radius: 15px;
+        }
+
+        .level-content.show {
+            display: block;
+        }
+
+        .lesson {
+            background: white;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            border-radius: 15px;
+            border-left: 5px solid #667eea;
+        }
+
+        .lesson-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1.5rem;
+        }
+
+        .lesson-title {
+            font-size: 1.5rem;
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        .lesson-number {
+            background: #667eea;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+
+        .content-section {
+            margin: 1.5rem 0;
+        }
+
+        .content-section h4 {
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            background: white;
+        }
+
+        th {
+            background: #667eea;
+            color: white;
+            padding: 1rem;
+            text-align: left;
+        }
+
+        td {
+            padding: 1rem;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .box {
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 10px;
+            border-left: 4px solid;
+        }
+
+        .example-box {
+            background: #e3f2fd;
+            border-color: #2196f3;
+        }
+
+        .grammar-box {
+            background: #fce4ec;
+            border-color: #e91e63;
+        }
+
+        .exercise-box {
+            background: #e8f5e9;
+            border-color: #4caf50;
+        }
+
+        .box h5 {
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+
+        .box ul, .box ol {
+            margin-left: 1.5rem;
+        }
+
+        .box li {
+            margin-bottom: 0.5rem;
+        }
+
+        footer {
+            background: #1a1a2e;
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem;
+            margin-top: 3rem;
+        }
+
+        footer p {
+            margin: 0.5rem 0;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .language-header { flex-direction: column; text-align: center; }
+            .lesson-header { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-content">
+            <div class="logo">🌍 PolyglotAcademy</div>
+            <div class="nav">
+                <a href="#francais" class="nav-btn">🇫🇷 Français</a>
+                <a href="#espagnol" class="nav-btn">🇪🇸 Español</a>
+                <a href="#arabe" class="nav-btn">🇸🇦 العربية</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="hero">
+        <h1>📚 Cours de Langues Complets</h1>
+        <p>Apprenez 5 langues avec des leçons détaillées</p>
+        <p style="font-size: 1.2rem;">🎓 Par BETTAHAR Abdelkrim - Université de Mostaganem</p>
+    </div>
+
+    <div class="container">
+
+        <!-- FRANÇAIS -->
+        <div id="francais" class="card">
+            <div class="language-header">
+                <span class="flag">🇫🇷</span>
+                <h2 class="language-title">Cours de Français Complet</h2>
+            </div>
+
+            <button class="level-btn" onclick="toggleLevel('fr-a1')">
+                🌱 Niveau A1 - Débutant (15 leçons)
+            </button>
+            <div id="fr-a1" class="level-content">
+
+                <div class="lesson">
+                    <div class="lesson-header">
+                        <h3 class="lesson-title">L'Alphabet Français</h3>
+                        <span class="lesson-number">1/15</span>
+                    </div>
+
+                    <div class="content-section">
+                        <p><strong>Bienvenue!</strong> Commençons par l'alphabet français de 26 lettres.</p>
+
+                        <h4>🔤 L'alphabet complet:</h4>
+                        <table>
+                            <tr><th>Lettre</th><th>Prononciation</th><th>Exemple</th></tr>
+                            <tr><td>A</td><td>[a]</td><td>Avion</td></tr>
+                            <tr><td>B</td><td>[be]</td><td>Banane</td></tr>
+                            <tr><td>C</td><td>[se]</td><td>Chat</td></tr>
+                            <tr><td>D</td><td>[de]</td><td>Dimanche</td></tr>
+                            <tr><td>E</td><td>[ə]</td><td>Eau</td></tr>
+                        </table>
+
+                        <div class="example-box">
+                            <h5>🎯 Les Accents:</h5>
+                            <ul>
+                                <li><strong>é</strong> (aigu) - café, été</li>
+                                <li><strong>è</strong> (grave) - mère, père</li>
+                                <li><strong>ê</strong> (circonflexe) - tête, forêt</li>
+                                <li><strong>ç</strong> (cédille) - français, garçon</li>
+                            </ul>
+                        </div>
+
+                        <div class="exercise-box">
+                            <h5>✏️ Exercice:</h5>
+                            <p>Épelez votre prénom en français!</p>
+                            <p>Exemple: M-A-R-I-E = ɛm-a-ɛʁ-i-ə</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lesson">
+                    <div class="lesson-header">
+                        <h3 class="lesson-title">Les Salutations</h3>
+                        <span class="lesson-number">2/15</span>
+                    </div>
+
+                    <div class="content-section">
+                        <h4>👋 Comment dire bonjour:</h4>
+                        <table>
+                            <tr><th>Français</th><th>Utilisation</th></tr>
+                            <tr><td>Bonjour</td><td>Le matin et l'après-midi</td></tr>
+                            <tr><td>Bonsoir</td><td>Le soir après 18h</td></tr>
+                            <tr><td>Salut</td><td>Informel avec amis</td></tr>
+                            <tr><td>Au revoir</td><td>Pour dire adieu</td></tr>
+                        </table>
+
+                        <div class="example-box">
+                            <h5>💬 Dialogue:</h5>
+                            <p><strong>Pierre:</strong> Bonjour Marie! Comment allez-vous?</p>
+                            <p><strong>Marie:</strong> Bonjour Pierre! Je vais bien, merci. Et vous?</p>
+                            <p><strong>Pierre:</strong> Très bien, merci!</p>
+                        </div>
+
+                        <div class="grammar-box">
+                            <h5>📝 Se présenter:</h5>
+                            <ul>
+                                <li><strong>Je m'appelle...</strong> - Mon nom est</li>
+                                <li><strong>J'ai ... ans</strong> - Mon âge</li>
+                                <li><strong>Je suis de...</strong> - Ma nationalité</li>
+                                <li><strong>J'habite à...</strong> - Ma ville</li>
+                            </ul>
+                        </div>
+
+                        <div class="exercise-box">
+                            <h5>✏️ Exercice de présentation:</h5>
+                            <p>Complétez:</p>
+                            <ol>
+                                <li>Je m'appelle _________</li>
+                                <li>J'ai _________ ans</li>
+                                <li>Je suis de _________</li>
+                                <li>J'habite à _________</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lesson">
+                    <div class="lesson-header">
+                        <h3 class="lesson-title">Les Nombres 0-100</h3>
+                        <span class="lesson-number">3/15</span>
+                    </div>
+
+                    <div class="content-section">
+                        <h4>🔢 Les nombres de base:</h4>
+                        <table>
+                            <tr><th>Nombre</th><th>Français</th></tr>
+                            <tr><td>0</td><td>zéro</td></tr>
+                            <tr><td>1</td><td>un</td></tr>
+                            <tr><td>2</td><td>deux</td></tr>
+                            <tr><td>3</td><td>trois</td></tr>
+                            <tr><td>10</td><td>dix</td></tr>
+                            <tr><td>20</td><td>vingt</td></tr>
+                        </table>
+
+                        <div class="grammar-box">
+                            <h5>⚠️ Système spécial français:</h5>
+                            <ul>
+                                <li><strong>70</strong> = soixante-dix (60+10)</li>
+                                <li><strong>80</strong> = quatre-vingts (4×20)</li>
+                                <li><strong>90</strong> = quatre-vingt-dix (4×20+10)</li>
+                            </ul>
+                        </div>
+
+                        <div class="example-box">
+                            <h5>💡 Exemples:</h5>
+                            <ul>
+                                <li>21 = vingt-et-un</li>
+                                <li>75 = soixante-quinze</li>
+                                <li>99 = quatre-vingt-dix-neuf</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <button class="level-btn" onclick="toggleLevel('fr-a2')">
+                🌿 Niveau A2 - Élémentaire (20 leçons)
+            </button>
+            <div id="fr-a2" class="level-content">
+                <div class="lesson">
+                    <div class="lesson-header">
+                        <h3 class="lesson-title">Les Verbes Réguliers</h3>
+                        <span class="lesson-number">1/20</span>
+                    </div>
+
+                    <div class="content-section">
+                        <h4>📝 Conjugaison au présent:</h4>
+
+                        <div class="grammar-box">
+                            <h5>Verbe PARLER (1er groupe -ER):</h5>
+                            <ul>
+                                <li>Je parle</li>
+                                <li>Tu parles</li>
+                                <li>Il/Elle parle</li>
+                                <li>Nous parlons</li>
+                                <li>Vous parlez</li>
+                                <li>Ils/Elles parlent</li>
+                            </ul>
+                        </div>
+
+                        <div class="example-box">
+                            <h5>💬 Phrases exemples:</h5>
+                            <ul>
+                                <li>J'<strong>étudie</strong> le français.</li>
+                                <li>Tu <strong>regardes</strong> la télévision.</li>
+                                <li>Nous <strong>habitons</strong> à Mostaganem.</li>
+                            </ul>
+                        </div>
+
+                        <div class="exercise-box">
+                            <h5>✏️ Conjuguez:</h5>
+                            <ol>
+                                <li>Je _____ (parler) français</li>
+                                <li>Tu _____ (aimer) le café</li>
+                                <li>Nous _____ (étudier) ensemble</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ESPAÑOL -->
+        <div id="espagnol" class="card">
+            <div class="language-header">
+                <span class="flag">🇪🇸</span>
+                <h2 class="language-title">Curso de Español</h2>
+            </div>
+
+            <button class="level-btn" onclick="toggleLevel('es-a1')">
+                🌱 Nivel A1 - Principiante (15 lecciones)
+            </button>
+            <div id="es-a1" class="level-content">
+                <div class="lesson">
+                    <div class="lesson-header">
+                        <h3 class="lesson-title">El Alfabeto Español</h3>
+                        <span class="lesson-number">1/15</span>
+                    </div>
+
+                    <div class="content-section">
+                        <p>L'alphabet espagnol a <strong>27 lettres</strong> avec la lettre spéciale <strong>ñ</strong>.</p>
+
+                        <h4>🔤 Lettres spéciales:</h4>
+                        <table>
+                            <tr><th>Lettre</th><th>Nom</th><th>Exemple</th></tr>
+                            <tr><td>Ñ</td><td>eñe</td><td>Niño (enfant)</td></tr>
+                            <tr><td>LL</td><td>elle</td><td>Llorar (pleurer)</td></tr>
+                            <tr><td>RR</td><td>erre</td><td>Perro (chien)</td></tr>
+                        </table>
+
+                        <div class="example-box">
+                            <h5>💡 Mots à pratiquer:</h5>
+                            <ul>
+                                <li><strong>España</strong> - Espagne</li>
+                                <li><strong>Mañana</strong> - Demain/Matin</li>
+                                <li><strong>Año</strong> - Année</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ARABE -->
+        <div id="arabe" class="card">
+            <div class="language-header">
+                <span class="flag">🇸🇦</span>
+                <h2 class="language-title">اللغة العربية</h2>
+            </div>
+
+            <button class="level-btn" onclick="toggleLevel('ar-a1')">
+                🌱 المستوى A1 - مبتدئ (15 درس)
+            </button>
+            <div id="ar-a1" class="level-content">
+                <div class="lesson">
+                    <div class="lesson-header">
+                        <h3 class="lesson-title">الحروف العربية</h3>
+                        <span class="lesson-number">1/15</span>
+                    </div>
+
+                    <div class="content-section">
+                        <p>L'alphabet arabe comprend <strong>28 lettres</strong>. Lecture de droite à gauche.</p>
+
+                        <div class="grammar-box">
+                            <h5>📝 Caractéristiques:</h5>
+                            <ul>
+                                <li>28 lettres consonnes</li>
+                                <li>4 formes par lettre</li>
+                                <li>Voyelles courtes et longues</li>
+                                <li>Écriture de droite à gauche</li>
+                            </ul>
+                        </div>
+
+                        <div class="example-box">
+                            <h5>💬 Salutations:</h5>
+                            <ul>
+                                <li><strong>السلام عليكم</strong> - As-salamu alaykum</li>
+                                <li><strong>صباح الخير</strong> - Bonjour (matin)</li>
+                                <li><strong>مساء الخير</strong> - Bonsoir</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p style="font-size: 1.2rem; margin-bottom: 1rem;">© 2025 PolyglotAcademy</p>
+        <p><strong>Créé par BETTAHAR Abdelkrim</strong></p>
+        <p>Université de Mostaganem (Abdelhamid Ibn Badis)</p>
+        <p>Département des langues étrangères - Langue française</p>
+        <p style="margin-top: 1rem;">Mémoire de Master en Sciences du Langage - 2025</p>
+    </footer>
+
+    <script>
+        function toggleLevel(id) {
+            const element = document.getElementById(id);
+            element.classList.toggle('show');
+        }
+    </script>
+</body>
+</html>
