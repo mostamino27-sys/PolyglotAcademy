@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PolyglotAcademy - Plateforme Complète | BETTAHAR Abdelkrim</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            line-height: 1.8;
+        }
+
+        .header {
+            background: rgba(255, 255, 255, 0.98);
+            padding: 1.5rem 2rem;
+            box-shadow: 0 4px 30px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .header-content {
+            max-width: 1600px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-btn {
+            padding: 0.75rem 1.5rem;
+            background: white;
+            border: 2px solid #667eea;
+            border-radius: 25px;
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .nav-btn:hover {
+            background: #667eea;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .hero {
+            text-align: center;
+            padding: 6rem 2rem 4rem;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+
+        .hero-subtitle {
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+            opacity: 0.95;
+        }
+
+        .hero-description {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 30px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 10px 50px rgba(0,0,0,0.15);
+        }
+
+        .language-header {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 4px solid #667eea;
+        }
+
+        .flag {
+            font-size: 5rem;
+        }
+
+        .language-info h2 {
+            font-size: 3rem;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+
+        .language-meta {
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        .levels-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .level-btn {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 1.5rem;
+            border: none;
+            border-radius: 20px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-align: left;
+        }
+
+        .level-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
+        }
+
+        .level-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .level-content {
+            display: none;
+            margin-top: 2rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            border-radius: 20px;
+        }
+
+        .level-content.show {
+            display: block;
+            animation: slideDown 0.5s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .lesson {
+            background: white;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            border-radius: 20px;
+            border-left: 6px solid #667eea;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        .lesson-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .lesson-title {
+            font-size: 1.6rem;
+            color: #667eea;
+            font-weight: 800;
+        }
+
+        .lesson-number {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 25px;
+            font-weight: 700;
+        }
+
+        .content-section {
+            margin: 2rem 0;
+        }
+
+        .content-section h4 {
+            color: #667eea;
+            margin-bottom: 1.5rem;
+            font-size: 1.4rem;
+            font-weight: 700;
+        }
+
+        .content-section p {
+            margin-bottom: 1rem;
+            line-height: 1.9;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+        }
+
+        th {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 1.2rem;
+            text-align: left;
+            font-weight: 700;
+        }
+
+        td {
+            padding: 1.2rem;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        tr:hover {
+            background: #f8f9fa;
+        }
+
+        .box {
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: 15px;
+            border-left: 5px solid;
+        }
+
+        .example-box {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            border-color: #2196f3;
+        }
+
+        .grammar-box {
+            background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 100%);
+            border-color: #e91e63;
+        }
+
+        .exercise-box {
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            border-color: #4caf50;
+        }
+
+        .note-box {
+            background: linear-gradient(135deg, #fff9c4 0%, #fff59d 100%);
+            border-color: #ffc107;
+        }
+
+        .box h5 {
+            margin-bottom: 1.2rem;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .box ul, .box ol {
+            margin-left: 2rem;
+        }
+
+        .box li {
+            margin-bottom: 0.8rem;
+            line-height: 1.8;
+        }
+
+        footer {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+            text-align: center;
+            padding: 4rem 2rem 2rem;
+            margin-top: 4rem;
+        }
+
+        footer h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        footer p {
+            margin: 0.5rem 0;
+            opacity: 0.9;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .language-header { flex-direction: column; text-align: center; }
+            .lesson-header { flex-direction: column; }
+            .levels-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-content">
+            <div class="logo">
+                🌍 PolyglotAcademy
+            </div>
+            <div class="nav">
+                <a href="#francais" class="nav-btn">🇫🇷 Français</a>
+                <a href="#espagnol" class="nav-btn">🇪🇸 Español</a>
+                <a href="#arabe" class="nav-btn">🇸🇦 العربية</a>
+                <a href="#anglais" class="nav-btn">🇬🇧 English</a>
+                <a href="#italien" class="nav-btn">🇮🇹 Italiano</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="hero">
+        <h1>📚 Plateforme Complète d'Apprentissage</h1>
+        <p class="hero-subtitle">Maîtrisez 5 Langues avec des Cours Professionnels</p>
+        <p class="hero-description">De A1 Débutant à C2 Maîtrise - Tous les Niveaux CECR Disponibles</p>
+        <p style="font-size: 1.3rem; margin-top: 2rem;">
+            🎓 Créé par <strong>BETTAHAR Abdelkrim</strong><br>
+            Université de Mostaganem - Département des Langues Étrangères
+        </p>
+    </div>
+
+    <div class="container">
+
+        <!-- ==================== FRANÇAIS ==================== -->
+        <div id="francais" class="card">
+            <div class="language-header">
+                <span class="flag">🇫🇷</span>
+                <div class="language-info">
+                    <h2>Cours de Français Complet</h2>
+                    <p class="language-meta">6 Niveaux CECR • 90 Leçons • 500+ Exercices</p>
+                </div>
+            </div>
+
+            <div class="levels-grid">
+                <button class="level-btn" onclick="toggleLevel('fr-a1')">
+                    <div>🌱 Niveau A1 - Débutant</div>
+                    <div class="level-info">
+                        <span>15 leçons</span>
+                        <span>10-15h</span>
+                    </div>
+                </button>
+                <button class="level-btn" onclick="toggleLevel('fr-a2')">
+                    <div>🌿 Niveau A2 - Élémentaire</div>
+                    <div class="level-info">
+                        <span>15 leçons</span>
+                        <span>15-20h</span>
+                    </div>
+                </button>
+                <button class="level-btn" onclick="toggleLevel('fr-b1')">
+                    <div>🌳 Niveau B1 - Intermédiaire</div>
+                    <div class="level-info">
+                        <span>15 leçons</span>
+                        <span>20-30h</span>
+                    </div>
+                </button>
+                <button class="level-btn" onclick="toggleLevel('fr-b2')">
+                    <div>🏛️ Niveau B2 - Avancé</div>
+                    <div class="level-info">
+                        <span>15 leçons</span>
+                        <span>30-40h</span>
+                    </div>
+                </button>
+                <button class="level-btn" onclick="toggleLevel('fr-c1')">
+                    <div>🎓 Niveau C1 - Autonome</div>
+                    <div class="level-info">
+                        <span>15 leçons</span>
+                        <span>40-50h</span>
+                    </div>
+                </button>
+                <button class="level-btn" onclick="toggleLevel('fr-c2')">
+                    <div>👑 Niveau C2 - Maîtrise</div>
+                    <div class="level-info">
+                        <span>15 leçons</span>
+                        <span>50-70h</span>
+                    </div>
+                </button>
+            </div>
+
+            <!-- A1 Content -->
+            <div id="fr-a1" class="level-content">
+                <div class="lesson">
+                    <div class="lesson-header">
+                        <h3 class="lesson-title">L'Alphabet Français et la Phonétique</h3>
+                        <span class="lesson-number">Leçon 1/15</span>
+                    </div>
+
+                    <div class="content-section">
+                        <p><strong>Bienvenue dans votre première leçon!</strong> L'alphabet français comprend 26 lettres identiques à l'anglais, mais avec une prononciation unique et l'ajout d'accents spéciaux.</p>
+
+                        <h4>🔤 L'alphabet complet avec phonétique:</h4>
+                        <table>
+                            <tr>
+                                <th>Lettre</th>
+                                <th>Prononciation API</th>
+                                <th>Prononciation simplifiée</th>
+                                <th>Exemple</th>
+                            </tr>
+                            <tr><td>A</td><td>[a]</td><td>a</td><td><strong>A</strong>vion (avion)</td></tr>
+                            <tr><td>B</td><td>[be]</td><td>bé</td><td><strong>B</strong>anane (banane)</td></tr>
+                            <tr><td>C</td><td>[se]</td><td>ssé</td><td><strong>C</strong>hat (chat)</td></tr>
+                            <tr><td>D</td><td>[de]</td><td>dé</td><td><strong>D</strong>imanche (dimanche)</td></tr>
+                            <tr><td>E</td><td>[ə]</td><td>eu</td><td><strong>E</strong>au (eau)</td></tr>
+                            <tr><td>F</td><td>[ɛf]</td><td>èf</td><td><strong>F</strong>leur (fleur)</td></tr>
+                            <tr><td>G</td><td>[ʒe]</td><td>jé</td><td><strong>G</strong>âteau (gâteau)</td></tr>
+                            <tr><td>H</td><td>[aʃ]</td><td>ach</td><td><strong>H</strong>ôtel (muet!)</td></tr>
+                        </table>
+
+                        <div class="grammar-box">
+                            <h5>📚 Les accents français:</h5>
+                            <ul>
+                                <li><strong>é</strong> (accent aigu) - prononciation fermée [e] - Exemples: <em>café, été, téléphone</em></li>
+                                <li><strong>è / ê</strong> (accent grave/circonflexe) - prononciation ouverte [ɛ] - Exemples: <em>mère, père, tête, forêt</em></li>
+                                <li><strong>à / ù</strong> - ne changent pas la prononciation - Exemples: <em>à Paris, où</em></li>
+                                <li><strong>ç</strong> (cédille) - prononciation [s] devant a, o, u - Exemples: <em>français, garçon, reçu</em></li>
+                            </ul>
+                        </div>
+
+                        <div class="note-box">
+                            <h5>⚠️ Règles de prononciation importantes:</h5>
+                            <ol>
+                                <li><strong>Le H est toujours muet:</strong> "hôtel" se prononce [o-tɛl], "homme" se prononce [ɔm]</li>
+                                <li><strong>Consonnes finales muettes:</strong> Les lettres s, t, x, z, d, g en fin de mot sont généralement muettes</li>
+                                <li><strong>La liaison:</strong> On prononce parfois les consonnes finales quand le mot suivant commence par une voyelle</li>
+                            </ol>
+                        </div>
+
+                        <div class="example-box">
+                            <h5>💡 Exemples de liaisons:</h5>
+                            <ul>
+                                <li>les enfants → [le-z‿ɑ̃fɑ̃] (liaison du s)</li>
+                                <li>un ami → [œ̃-n‿ami] (liaison du n)</li>
+                                <li>deux heures → [dø-z‿œʁ] (liaison du x)</li>
+                            </ul>
+                        </div>
+
+                        <div class="exercise-box">
+                            <h5>✏️ Exercices pratiques:</h5>
+                            <p><strong>A. Épelez ces mots en français:</strong></p>
+                            <ol>
+                                <li>PARIS → P-A-R-I-S [pe-a-ɛʁ-i-ɛs]</li>
+                                <li>CAFÉ → C-A-F-É [se-a-ɛf-e]</li>
+                                <li>FRANÇAIS → F-R-A-N-Ç-A-I-S</li>
+                            </ol>
+                            <p><strong>B. À vous!</strong> Épelez votre prénom complet en français.</p>
+                            <p><strong>C. Pratiquez:</strong> Prononcez à voix haute tous les mots du tableau ci-dessus.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lesson">
+                    <div class="lesson-header">
+                        <h3 class="lesson-title">Les Salutations et Présentations</h3>
+                        <span class="lesson-number">Leçon 2/15</span>
+                    </div>
+
+                    <div class="content-section">
+                        <p>Savoir saluer et se présenter est la base de toute communication en français!</p>
+
+                        <h4>👋 Salutations selon le contexte:</h4>
+                        <table>
+                            <tr>
+                                <th>Expression</th>
+                                <th>Contexte</th>
+                                <th>Moment</th>
+                                <th>Niveau de formalité</th>
+                            </tr>
+                            <tr>
+                                <td><strong>Bonjour</strong></td>
+                                <td>Universel</td>
+                                <td>Matin et après-midi</td>
+                                <td>Formel et informel</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Bonsoir</strong></td>
+                                <td>Universel</td>
+                                <td>Soir (après 18h)</td>
+                                <td>Formel et informel</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Salut</strong></td>
+                                <td>Entre amis</td>
+                                <td>Toute la journée</td>
+                                <td>Informel uniquement</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Bonne journée</strong></td>
+                                <td>En partant</td>
+                                <td>Durant la journée</td>
+                                <td>Formel et informel</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Au revoir</strong></td>
+                                <td>Universel</td>
+                                <td>Toute la journée</td>
+                                <td>Formel et informel</td>
+                            </tr>
+                        </table>
+
+                        <div class="example-box">
+                            <h5>💬 Dialogue formel (au travail):</h5>
+                            <p><strong>M. Dupont:</strong> Bonjour, Madame Martin!</p>
+                            <p><strong>Mme Martin:</strong> Bonjour, Monsieur Dupont. Comment allez-vous?</p>
+                            <p><strong>M. Dupont:</strong> Je vais très bien, merci. Et vous?</p>
+                            <p><strong>Mme Martin:</strong> Très bien également, merci beaucoup!</p>
+                            <p><strong>M. Dupont:</strong> Bonne journée, Madame.</p>
+                            <p><strong>Mme Martin:</strong> À vous aussi, Monsieur.</p>
+                        </div>
+
+                        <div class="example-box">
+                            <h5>💬 Dialogue informel (entre amis):</h5>
+                            <p><strong>Pierre:</strong> Salut Marie! Ça va?</p>
+                            <p><strong>Marie:</strong> Salut Pierre! Oui, ça va super! Et toi?</p>
+                            <p><strong>Pierre:</strong> Ça roule! Tu fais quoi ce soir?</p>
+                            <p><strong>Marie:</strong> Je suis libre. On se voit?</p>
+                            <p><strong>Pierre:</strong> Cool! À ce soir alors!</p>
+                        </div>
+
+                        <div class="grammar-box">
+                            <h5>📝 Se présenter - Les phrases essentielles:</h5>
+                            <ol>
+                                <li><strong>Je m'appelle...</strong> (Mon nom est...) - "Je m'appelle Sophie"</li>
+                                <li><strong>J'ai ... ans</strong> (Mon âge) - "J'ai 25 ans"</li>
+                                <li><strong>Je suis de...</strong> (Mon origine) - "Je suis d'Algérie"</li>
+                                <li><strong>J'habite à...</strong> (Ma résidence) - "J'habite à Mostaganem"</li>
+                                <li><strong>Je suis...</strong> (Ma profession) - "Je suis étudiant(e)"</li>
+                                <li><strong>Enchanté(e)</strong> - Expression de politesse lors d'une première rencontre</li>
+                            </ol>
+                        </div>
+
+                        <div class="example-box">
+                            <h5>🎯 Présentation complète - Modèle:</h5>
+                            <p style="line-height: 2;">
+                                "Bonjour! Je m'appelle <strong>Ahmed</strong>. J'ai <strong>23 ans</strong>. 
+                                Je suis <strong>d'Algérie</strong>, plus précisément de <strong>Mostaganem</strong>. 
+                                J'habite <strong>à Oran</strong> maintenant. Je suis <strong>étudiant en langues</strong> 
+                                à l'université. Je parle <strong>arabe</strong>, <strong>français</strong> et un peu 
+                                <strong>anglais</strong>. Enchanté de faire votre connaissance!"
+                            </p>
+                        </div>
+
+                        <div class="exercise-box">
+                            <h5>✏️ Exercice de présentation personnelle:</h5>
+                            <p><strong>Créez votre propre présentation en complétant:</strong></p>
+                            <ol>
+                                <li>Bonjour! Je m'appelle __________.</li>
+                                <li>J'ai __________ ans.</li>
+                                <li>Je suis de __________.</li>
+                                <li>J'habite à __________.</li>
+                                <li>Je suis __________ (profession/études).</li>
+                                <li>Je parle __________ et __________.</li>
+                                <li>Enchanté(e)!</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- B1 Content -->
+            <div id="fr-b1" class="level-content">
+                <div class="lesson">
+                    <div class="lesson-header">
+                        <h3 class="lesson-title">Le Passé Composé et l'Imparfait</h3>
+                        <span class="lesson-number">Leçon 1/15</span>
+                    </div>
+
+                    <div class="content-section">
+                        <p>Comprendre la différence entre ces deux temps du passé est essentiel pour raconter des histoires en français.</p>
+
+                        <div class="grammar-box">
+                            <h5>📚 Le Passé Composé:</h5>
+                            <p><strong>Formation:</strong> Auxiliaire (avoir/être) au présent + Participe passé</p>
+                            <ul>
+                                <li>J'<strong>ai mangé</strong> une pomme</li>
+                                <li>Tu <strong>as fini</strong> ton travail</li>
+                                <li>Il <strong>est allé</strong> au cinéma</li>
+                                <li>Nous <strong>avons parlé</strong> français</li>
+                            </ul>
+                        </div>
+
+                        <div class="grammar-box">
+                            <h5>📚 L'Imparfait:</h5>
+                            <p><strong>Formation:</strong> Radical du "nous" au présent + terminaisons (-ais, -ais, -ait, -ions, -iez, -aient)</p>
+                            <ul>
+                                <li>Je <strong>mangeais</strong> souvent des pommes</li>
+                                <li>Tu <strong>finissais</strong> toujours tard</li>
+                                <li>Il <strong>allait</strong> au cinéma chaque semaine</li>
+                                <li>Nous <strong>parlions</strong> français ensemble</li>
+                            </ul>
+                        </div>
+
+                        <div class="note-box">
+                            <h5>⚠️ Quand utiliser chaque temps?</h5>
+                            <p><strong>Passé Composé:</strong> Actions ponctuelles, complétées, événements spécifiques</p>
+                            <p><strong>Imparfait:</strong> Actions habituelles, descriptions, situations en cours</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- C1 Content -->
+            <div id="fr-c1" class="level-content">
+                <div class="lesson">
+                    <div class="lesson-header">
+                        <h3 class="lesson-title">L'Argumentation et le Discours Académique</h3>
+                        <span class="lesson-number">Leçon 1/15</span>
+                    </div>
+
+                    <div class="content-section">
+                        <p>Au niveau C1, vous devez maîtriser les structures complexes pour exprimer des idées sophistiquées.</p>
+
+                        <div class="grammar-box">
+                            <h5>🎯 Connecteurs logiques avancés:</h5>
+                            <ul>
+                                <li><strong>Néanmoins / Toutefois:</strong> Cependant, cette théorie néanmoins présente des limites.</li>
+                                <li><strong>Par conséquent:</strong> L'économie croît, par conséquent le chômage baisse.</li>
+                                <li><strong>En effet:</strong> Les résultats sont positifs. En effet, 90% des participants...</li>
+                                <li><strong>D'une part... D'autre part:</strong> Structure pour présenter deux aspects</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- ==================== ESPAÑOL ==================== -->
+        <div id="espagnol" class="card">
+            <div class="language-header">
+                <span class="flag">🇪🇸</span>
+                <div class="language-info">
+                    <h2>Curso Completo de Español</h2>
+                    <p class="language-meta">6 Niveles MCER • 90 Lecciones • 500+ Ejercicios</p>
+                </div>
+            </div>
+
+            <div class="levels-grid">
+                <button class="level-btn" onclick="toggleLevel('es-a1')">
+                    <div>🌱 Nivel A1 - Principiante</div>
+                    <div class="level-info"><span>15 lecciones</span><span>10-15h</span></div>
+                </button>
+                <button class="level-btn" onclick="toggleLevel('es-a2')">
+                    <div>🌿 Nivel A2 - Elemental</div>
+                    <div class="level-info"><span>15 lecciones</span><span>15-20h</span></div>
+                </button>
+                <button class="level-btn" onclick="toggleLevel('es-b1')">
+                    <div>🌳 Nivel B1 - Intermedio</div>
+                    <div class="level-info"><span>15 lecciones</span><span>20-30h</span></div>
+                </button>
+                <button class="level-btn" onclick="toggleLevel('es-b2')">
+                    <div>🏛️ Nivel B2 - Avanzado</div>
+                    <div class="level-info"><span>15 lecciones</span><span>30-40h</span></div>
+                </button>
+                <button class="level-btn" onclick="toggleLevel('es-c1')">
+                    <div>🎓 Nivel C1 - Dominio</div>
+                    <div class="level-info"><span>15 lecciones</span><span>40-50h</span></div>
+                </button>
+                <button class="level-btn" onclick="toggleLevel('es-c2')">
+                    <div>👑 Nivel C2 - Maestría</div>
+                    <div class="level-info"><span>15 lecciones</span><span>50-70h</span></div>
+                </button>
+            </div>
+
+            <div id="es-a1" class="level-content">
+                <div class="lesson">
+                    <div class="lesson-header">
+                        <h3 class="lesson-title">El Alfabeto Español y Pronunciación</h3>
+                        <span class="lesson-number">Lección 1/15</span>
+                    </div>
+
+                    <div class="content-section">
+                        <p>L'espagnol utilise 27 lettres, incluant la lettre spéciale <strong>Ñ</strong>.</p>
+
+                        <h4>🔤 Lettres spéciales de l'espagnol:</h4>
+                        <table>
+                            <tr>
+                                <th>Lettre</th>
+                                <th>Nom</th>
+                                <th>Prononciation</th>
+                                <th>Exemple</th>
+                            </tr>
+                            <tr><td>Ñ ñ</td><td>eñe</td><td>[ɲ] comme "gn"</td><td><strong>Niño</strong> (enfant)</td></tr>
+                            <tr><td>LL ll</td><td>elle</td><td>[ʝ] ou [ʎ]</td><td><strong>Llorar</strong> (pleurer)</td></tr>
+                            <tr><td>RR rr</td><td>erre doble</td><td>[r] roulé fort</td><td><strong>Perro</strong> (chien)</td></tr>
+                            <tr><td>J j</td><td>jota</td><td>[x] guttural</td><td><strong>Joven</strong> (jeune)</td></tr>
+                        </table>
+
+                        <div class="grammar-box">
+                            <h5>📚 Règles de prononciation:</h5>
+                            <ul>
+                                <li><strong>Les voyelles</strong> A, E, I, O, U sont toujours claires</li>
+                                <li><strong>H est muet:</strong> "hola" = [ola]</li>
+                                <li><strong>Accent tonique:</strong> généralement sur l'avant-dernière syllabe</li>
+                                <li><strong>B et V</strong> se prononcent de façon identique</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==================== ENGLISH ==================== -->
+        <div id="anglais" class="card">
+            <div class="language-header">
+                <span class="flag">🇬🇧</span>
+                <div class="language-info">
+                    <h2>Complete English Course</h2>
+                    <p class="language-meta">6 CEFR Levels • 90 Lessons • 500+ Exercises</p>
+                </div>
+            </div>
+
+            <div class="levels-grid">
+                <button class="level-btn" onclick="toggleLevel('en-a1')">
+                    <div>🌱 Level A1 - Beginner</div>
+                    <div class="level-info"><span>15 lessons</span><span>10-15h</span></div>
+                </button>
+                <button class="level-btn" onclick="toggleLevel('en-a2')">
+                    <div>🌿 Level A2 - Elementary</div>
+                    <div class="level-info"><span>15 lessons</span><span>15-20h</span></div>
+                </button>
+                <button class="level-btn" onclick="toggleLevel('en-b1')">
+                    <div>🌳 Level B1 - Intermediate</div>
+                    <div class="level-info"><span>15 lessons</span><span>20-30h</span></div>
+                </button>
+                <button class="level-btn" onclick="toggleLevel('en-b2')">
+                    <div>🏛️ Level B2 - Upper-Intermediate</div>
+                    <div class="level-info"><span>15 lessons</span><span>30-40h</span></div>
+                </button>
+                <button class="level-btn" onclick="toggleLevel('en-c1')">
+                    <div>🎓 Level C1 - Advanced</div>
+                    <div class="level-info"><span>15 lessons</span><span>40-50h</span></div>
+                </button>
+                <button class="level-btn" onclick="toggleLevel('en-c2')">
+                    <div>👑 Level C2 - Proficiency</div>
+                    <div class="level-info"><span>15 lessons</span><span>50-70h</span></div>
+                </button>
+            </div>
+
+            <div id="en-a1" class="level-content">
+                <div class="lesson">
+                    <div class="lesson-header">
+                        <h3 class="lesson-title">The English Alphabet and Pronunciation</h3>
+                        <span class="lesson-number">Lesson 1/15</span>
+                    </div>
+
+                    <div class="content-section">
+                        <p>English uses 26 letters with unique pronunciation patterns.</p>
+
+                        <h4>🔤 Vowels and their sounds:</h4>
+                        <table>
+                            <tr>
+                                <th>Vowel</th>
+                                <th>Short Sound</th>
+                                <th>Long Sound</th>
+                                <th>Examples</th>
+                            </tr>
+                            <tr><td>A</td><td>[æ] cat</td><td>[eɪ] cake</td><td>apple / amazing</td></tr>
+                            <tr><td>E</td><td>[ɛ] bed</td><td>[i:] tree</td><td>elephant / email</td></tr>
+                            <tr><td>I</td><td>[ɪ] sit</td><td>[aɪ] bike</td><td>information / idea</td></tr>
+                            <tr><td>O</td><td>[ɒ] hot</td><td>[oʊ] home</td><td>option / opinion</td></tr>
+                            <tr><td>U</td><td>[ʌ] cup</td><td>[ju:] use</td><td>umbrella / university</td></tr>
+                        </table>
+
+                        <div class="grammar-box">
+                            <h5>📚 Key pronunciation rules:</h5>
+                            <ul>
+                                <li><strong>TH sounds:</strong> [θ] think / [ð] this</li>
+                                <li><strong>Silent letters:</strong> K in "knife", W in "write"</li>
+                                <li><strong>Word stress:</strong> Important for meaning</li>
+                                <li><strong>Schwa sound [ə]:</strong> Most common vowel sound in unstressed syllables</li>
+                            </ul>
+                        </div>
+
+                        <div class="example-box">
+                            <h5>💡 Common greetings:</h5>
+                            <ul>
+                                <li><strong>Hello / Hi</strong> - Universal greeting</li>
+                                <li><strong>Good morning</strong> - Before noon</li>
+                                <li><strong>Good afternoon</strong> - After noon</li>
+                                <li><strong>Good evening</strong> - After 6 PM</li>
+                                <li><strong>How are you?</strong> - Common question</li>
+                            </ul>
+                        </div>
+
+                        <div class="exercise-box">
+                            <h5>✏️ Practice exercises:</h5>
+                            <p><strong>A. Spell these words aloud:</strong></p>
+                            <ol>
+                                <li>ENGLISH → E-N-G-L-I-S-H</li>
+                                <li>LEARNING → L-E-A-R-N-I-N-G</li>
+                                <li>PRACTICE → P-R-A-C-T-I-C-E</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lesson">
+                    <div class="lesson-header">
+                        <h3 class="lesson-title">Introductions and Basic Conversations</h3>
+                        <span class="lesson-number">Lesson 2/15</span>
+                    </div>
+
+                    <div class="content-section">
+                        <h4>🙋 Introducing yourself:</h4>
+
+                        <div class="example-box">
+                            <h5>💬 Complete introduction example:</h5>
+                            <p style="line-height: 2;">
+                                "Hello! My name is <strong>Sarah</strong>. I'm <strong>25 years old</strong>. 
+                                I'm <strong>from Algeria</strong>, but I live in <strong>Mostaganem</strong> now. 
+                                I'm a <strong>student</strong> at the university. I study <strong>languages</strong>. 
+                                I speak <strong>Arabic</strong>, <strong>French</strong>, and I'm learning <strong>English</strong>. 
+                                Nice to meet you!"
+                            </p>
+                        </div>
+
+                        <div class="grammar-box">
+                            <h5>📝 Essential phrases:</h5>
+                            <ul>
+                                <li><strong>My name is...</strong> / <strong>I'm...</strong></li>
+                                <li><strong>I'm from...</strong> (origin)</li>
+                                <li><strong>I live in...</strong> (current location)</li>
+                                <li><strong>I'm a...</strong> (profession)</li>
+                                <li><strong>I speak...</strong> (languages)</li>
+                                <li><strong>Nice to meet you!</strong> (polite greeting)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==================== ITALIANO ==================== -->
+        <div id="italien" class="card">
+            <div class="language-header">
+                <span class="flag">🇮🇹</span>
+                <div class="language-info">
+                    <h2>Corso Completo di Italiano</h2>
+                    <p class="language-meta">6 Livelli QCER • 90 Lezioni • 500+ Esercizi</p>
+                </div>
+            </div>
+
+            <div class="levels-grid">
+                <button class="level-btn" onclick="toggleLevel('it-a1')">
+                    <div>🌱 Livello A1 - Principiante</div>
+                    <div class="level-info"><span>15 lezioni</span><span>10-15h</span></div>
+                </button>
+                <button class="level-btn" onclick="toggleLevel('it-a2')">
+                    <div>🌿 Livello A2 - Elementare</div>
+                    <div class="level-info"><span>15 lezioni</span><span>15-20h</span></div>
+                </button>
+                <button class="level-btn" onclick="toggleLevel('it-b1')">
+                    <div>🌳 Livello B1 - Intermedio</div>
+                    <div class="level-info"><span>15 lezioni</span><span>20-30h</span></div>
+                </button>
+                <button class="level-btn" onclick="toggleLevel('it-b2')">
+                    <div>🏛️ Livello B2 - Intermedio Superiore</div>
+                    <div class="level-info"><span>15 lezioni</span><span>30-40h</span></div>
+                </button>
+                <button class="level-btn" onclick="toggleLevel('it-c1')">
+                    <div>🎓 Livello C1 - Avanzato</div>
+                    <div class="level-info"><span>15 lezioni</span><span>40-50h</span></div>
+                </button>
+                <button class="level-btn" onclick="toggleLevel('it-c2')">
+                    <div>👑 Livello C2 - Padronanza</div>
+                    <div class="level-info"><span>15 lezioni</span><span>50-70h</span></div>
+                </button>
+            </div>
+
+            <div id="it-a1" class="level-content">
+                <div class="lesson">
+                    <div class="lesson-header">
+                        <h3 class="lesson-title">L'Alfabeto Italiano e Pronuncia</h3>
+                        <span class="lesson-number">Lezione 1/15</span>
+                    </div>
+
+                    <div class="content-section">
+                        <p>L'alphabet italien comprend <strong>21 lettres de base</strong> plus 5 lettres étrangères (J, K, W, X, Y).</p>
+
+                        <h4>🔤 L'alphabet italien:</h4>
+                        <table>
+                            <tr>
+                                <th>Lettre</th>
+                                <th>Nom</th>
+                                <th>Prononciation</th>
+                                <th>Exemple</th>
+                            </tr>
+                            <tr><td>A</td><td>a</td><td>[a]</td><td><strong>A</strong>more (amour)</td></tr>
+                            <tr><td>C</td><td>ci</td><td>[tʃ] devant e,i</td><td><strong>C</strong>iao (salut)</td></tr>
+                            <tr><td>G</td><td>gi</td><td>[dʒ] devant e,i</td><td><strong>G</strong>elato (glace)</td></tr>
+                            <tr><td>H</td><td>acca</td><td>muet</td><td><strong>H</strong>otel (hôtel)</td></tr>
+                            <tr><td>R</td><td>erre</td><td>[r] roulé</td><td><strong>R</strong>oma (Rome)</td></tr>
+                        </table>
+
+                        <div class="grammar-box">
+                            <h5>📚 Règles de prononciation importantes:</h5>
+                            <ul>
+                                <li><strong>C devant E/I:</strong> [tʃ] comme "tch" → <em>cena, cinema</em></li>
+                                <li><strong>C devant A/O/U:</strong> [k] comme "k" → <em>casa, cosa, cuore</em></li>
+                                <li><strong>G devant E/I:</strong> [dʒ] comme "dj" → <em>gente, giorno</em></li>
+                                <li><strong>G devant A/O/U:</strong> [g] dur → <em>gatto, gusto</em></li>
+                                <li><strong>GL:</strong> [ʎ] comme "ll" espagnol → <em>famiglia, gli</em></li>
+                                <li><strong>GN:</strong> [ɲ] comme "gn" français → <em>gnocchi, bagno</em></li>
+                            </ul>
+                        </div>
+
+                        <div class="example-box">
+                            <h5>💡 Salutations essentielles:</h5>
+                            <ul>
+                                <li><strong>Ciao</strong> - Salut (informel)</li>
+                                <li><strong>Buongiorno</strong> - Bonjour</li>
+                                <li><strong>Buonasera</strong> - Bonsoir</li>
+                                <li><strong>Arrivederci</strong> - Au revoir</li>
+                                <li><strong>Grazie</strong> - Merci</li>
+                                <li><strong>Prego</strong> - De rien / Je vous en prie</li>
+                            </ul>
+                        </div>
+
+                        <div class="note-box">
+                            <h5>⚠️ Particularités italiennes:</h5>
+                            <ul>
+                                <li>Les consonnes doubles se prononcent plus longtemps: <em>notte</em> vs <em>note</em></li>
+                                <li>L'accent tonique est crucial: <em>àncora</em> (encore) vs <em>ancòra</em> (ancre)</li>
+                                <li>Toutes les lettres se prononcent (pas de lettres muettes sauf H)</li>
+                            </ul>
+                        </div>
+
+                        <div class="exercise-box">
+                            <h5>✏️ Esercizi di pronuncia:</h5>
+                            <p><strong>A. Prononcez correctement:</strong></p>
+                            <ol>
+                                <li><strong>Ciao</strong> [tʃao] - Salut</li>
+                                <li><strong>Grazie</strong> [gratsie] - Merci</li>
+                                <li><strong>Buongiorno</strong> [bwon-dʒor-no] - Bonjour</li>
+                                <li><strong>Piacere</strong> [pja-tʃe-re] - Enchanté</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lesson">
+                    <div class="lesson-header">
+                        <h3 class="lesson-title">Presentarsi in Italiano</h3>
+                        <span class="lesson-number">Lezione 2/15</span>
+                    </div>
+
+                    <div class="content-section">
+                        <h4>🙋 Se présenter en italien:</h4>
+
+                        <div class="grammar-box">
+                            <h5>📝 Phrases essentielles:</h5>
+                            <ul>
+                                <li><strong>Mi chiamo...</strong> - Je m'appelle...</li>
+                                <li><strong>Ho ... anni</strong> - J'ai ... ans</li>
+                                <li><strong>Sono di...</strong> - Je suis de...</li>
+                                <li><strong>Abito a...</strong> - J'habite à...</li>
+                                <li><strong>Sono studente/studentessa</strong> - Je suis étudiant(e)</li>
+                                <li><strong>Piacere</strong> - Enchanté</li>
+                            </ul>
+                        </div>
+
+                        <div class="example-box">
+                            <h5>💬 Dialogue de présentation:</h5>
+                            <p><strong>Marco:</strong> Ciao! Mi chiamo Marco. E tu?</p>
+                            <p><strong>Sofia:</strong> Ciao Marco! Io sono Sofia. Piacere!</p>
+                            <p><strong>Marco:</strong> Piacere mio! Di dove sei?</p>
+                            <p><strong>Sofia:</strong> Sono di Milano, ma abito a Roma ora. E tu?</p>
+                            <p><strong>Marco:</strong> Io sono di Napoli. Quanti anni hai?</p>
+                            <p><strong>Sofia:</strong> Ho 24 anni. E tu?</p>
+                            <p><strong>Marco:</strong> Io ho 26 anni. Sei studentessa?</p>
+                            <p><strong>Sofia:</strong> Sì, studio lingue all'università!</p>
+                        </div>
+
+                        <div class="example-box">
+                            <h5>🎯 Présentation complète:</h5>
+                            <p style="line-height: 2;">
+                                "Ciao! Mi chiamo <strong>Giulia</strong>. Ho <strong>22 anni</strong>. 
+                                Sono <strong>di Firenze</strong>, ma adesso abito <strong>a Bologna</strong>. 
+                                Sono <strong>studentessa di medicina</strong> all'università. 
+                                Parlo <strong>italiano</strong>, <strong>inglese</strong> e un po' di <strong>francese</strong>. 
+                                Piacere di conoscerti!"
+                            </p>
+                        </div>
+
+                        <div class="exercise-box">
+                            <h5>✏️ Crea la tua presentazione:</h5>
+                            <ol>
+                                <li>Ciao! Mi chiamo __________.</li>
+                                <li>Ho __________ anni.</li>
+                                <li>Sono di __________.</li>
+                                <li>Abito a __________.</li>
+                                <li>Sono __________ (professione).</li>
+                                <li>Parlo __________ e __________.</li>
+                                <li>Piacere!</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <h3>🎓 PolyglotAcademy</h3>
+        <p style="font-size: 1.2rem; margin: 1rem 0;">
+            <strong>Créé par BETTAHAR Abdelkrim</strong>
+        </p>
+        <p>Université de Mostaganem (Abdelhamid Ibn Badis)</p>
+        <p>Département des langues étrangères - Langue française</p>
+        <p style="margin-top: 1.5rem;">
+            Mémoire de Master en Sciences du Langage - 2025
+        </p>
+        <p style="margin-top: 1rem; opacity: 0.8;">
+            © 2025 Tous droits réservés
+        </p>
+    </footer>
+
+    <script>
+        function toggleLevel(id) {
+            const element = document.getElementById(id);
+            const isCurrentlyShown = element.classList.contains('show');
+
+            // Close all level contents
+            document.querySelectorAll('.level-content').forEach(content => {
+                content.classList.remove('show');
+            });
+
+            // Toggle current element
+            if (!isCurrentlyShown) {
+                element.classList.add('show');
+                // Smooth scroll to content
+                setTimeout(() => {
+                    element.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                }, 100);
+            }
+        }
+
+        // Smooth scroll for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
