@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="PolyglotAcademy - Plateforme complète avec leçons détaillées pour 5 langues">
+    <meta name="author" content="BETTAHAR Abdelkrim - Université de Mostaganem">
+    <title>PolyglotAcademy - Cours Complets | BETTAHAR Abdelkrim</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #6366f1;
+            --secondary: #ec4899;
+            --accent: #14b8a6;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --dark: #0f172a;
+            --gray: #64748b;
+            --light: #f8fafc;
+            --white: #ffffff;
+            --gradient-modern: linear-gradient(135deg, #6366f1 0%, #ec4899 50%, #14b8a6 100%);
+            --shadow: 0 10px 40px rgba(99, 102, 241, 0.15);
+            --shadow-lg: 0 20px 60px rgba(99, 102, 241, 0.2);
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            line-height: 1.7;
+            color: var(--dark);
+            background: var(--light);
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: var(--gradient-modern);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 0.5rem;
+            list-style: none;
+        }
+
+        .nav-menu a {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 600;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            transition: all 0.3s;
+        }
+
+        .nav-menu a:hover {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(236, 72, 153, 0.1) 100%);
+            color: var(--primary);
+        }
+
+        .hero {
+            background: var(--gradient-modern);
+            color: var(--white);
+            padding: 8rem 2rem 6rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+        }
+
+        .hero-subtitle {
+            font-size: 1.4rem;
+            margin-bottom: 3rem;
+            opacity: 0.95;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--gray);
+        }
+
+        .languages-grid {
+            display: grid;
+            gap: 3rem;
+        }
+
+        .language-section {
+            background: var(--white);
+            border-radius: 30px;
+            padding: 4rem;
+            box-shadow: var(--shadow);
+            border: 3px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .language-section:hover {
+            border-color: var(--primary);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .language-header-main {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 3px solid var(--primary);
+        }
+
+        .language-flag-huge {
+            font-size: 6rem;
+        }
+
+        .language-title-group h2 {
+            font-size: 3rem;
+            background: var(--gradient-modern);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+
+        .language-subtitle {
+            font-size: 1.2rem;
+            color: var(--gray);
+            font-weight: 600;
+        }
+
+        .requirements-section {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.05) 0%, rgba(236, 72, 153, 0.05) 100%);
+            padding: 2.5rem;
+            border-radius: 20px;
+            margin-bottom: 3rem;
+            border-left: 5px solid var(--primary);
+        }
+
+        .requirements-section h3 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .requirements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .requirement-item {
+            display: flex;
+            align-items: start;
+            gap: 1rem;
+        }
+
+        .requirement-icon {
+            font-size: 1.5rem;
+            margin-top: 0.2rem;
+        }
+
+        .requirement-content strong {
+            color: var(--dark);
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+
+        .requirement-content span {
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+
+        .levels-section {
+            margin-top: 3rem;
+        }
+
+        .level-group {
+            margin-bottom: 3rem;
+        }
+
+        .level-header {
+            background: var(--gradient-modern);
+            color: var(--white);
+            padding: 2rem;
+            border-radius: 20px;
+            margin-bottom: 2rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .level-header:hover {
+            transform: translateX(10px);
+            box-shadow: var(--shadow);
+        }
+
+        .level-header h4 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+
+        .level-meta {
+            display: flex;
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+
+        .level-meta span {
+            opacity: 0.9;
+            font-weight: 600;
+        }
+
+        .lessons-content {
+            display: none;
+            padding: 2rem;
+        }
+
+        .lessons-content.active {
+            display: block;
+            animation: slideDown 0.5s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .lesson-card {
+            background: var(--white);
+            border: 2px solid rgba(99, 102, 241, 0.1);
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s;
+        }
+
+        .lesson-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+
+        .lesson-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .lesson-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        .lesson-number {
+            background: var(--primary);
+            color: var(--white);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-weight: 700;
+        }
+
+        .lesson-content {
+            color: var(--gray);
+            line-height: 1.8;
+        }
+
+        .lesson-objectives {
+            margin-top: 1.5rem;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.05) 0%, rgba(236, 72, 153, 0.05) 100%);
+            border-radius: 15px;
+        }
+
+        .lesson-objectives h5 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .lesson-objectives ul {
+            margin-left: 1.5rem;
+        }
+
+        .lesson-objectives li {
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+
+        footer {
+            background: var(--dark);
+            color: var(--white);
+            padding: 4rem 2rem 2rem;
+            margin-top: 5rem;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .footer-content p {
+            opacity: 0.9;
+            line-height: 1.8;
+            margin: 0.5rem 0;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .section-title { font-size: 2rem; }
+            .language-header-main { flex-direction: column; text-align: center; }
+            .requirements-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">🌍 PolyglotAcademy</div>
+            <ul class="nav-menu">
+                <li><a href="#accueil">Accueil</a></li>
+                <li><a href="#francais">Français</a></li>
+                <li><a href="#espagnol">Español</a></li>
+                <li><a href="#arabe">العربية</a></li>
+                <li><a href="#anglais">English</a></li>
+                <li><a href="#allemand">Deutsch</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero" id="accueil">
+        <h1>Cours Complets de Langues</h1>
+        <p class="hero-subtitle">
+            Apprenez 5 langues avec des leçons structurées et des objectifs clairs pour chaque niveau CECR
+        </p>
+        <p style="margin-top: 2rem; font-size: 1.1rem;">
+            🎓 Créé par <strong>BETTAHAR Abdelkrim</strong> | Université de Mostaganem
+        </p>
+    </section>
+
+    <div class="container">
+        <div class="languages-grid">
+
+            <!-- FRANÇAIS -->
+            <div id="francais" class="language-section">
+                <div class="language-header-main">
+                    <div class="language-flag-huge">🇫🇷</div>
+                    <div class="language-title-group">
+                        <h2>Français</h2>
+                        <p class="language-subtitle">Langue Française - De A1 à C2</p>
+                    </div>
+                </div>
+
+                <div class="requirements-section">
+                    <h3>📋 Prérequis et Objectifs</h3>
+                    <div class="requirements-grid">
+                        <div class="requirement-item">
+                            <div class="requirement-icon">🎯</div>
+                            <div class="requirement-content">
+                                <strong>Objectif Global</strong>
+                                <span>Maîtriser le français oral et écrit</span>
+                            </div>
+                        </div>
+                        <div class="requirement-item">
+                            <div class="requirement-icon">⏱️</div>
+                            <div class="requirement-content">
+                                <strong>Durée Totale</strong>
+                                <span>250-350 heures d'apprentissage</span>
+                            </div>
+                        </div>
+                        <div class="requirement-item">
+                            <div class="requirement-icon">📚</div>
+                            <div class="requirement-content">
+                                <strong>Matériel Requis</strong>
+                                <span>Cahier, dictionnaire français</span>
+                            </div>
+                        </div>
+                        <div class="requirement-item">
+                            <div class="requirement-icon">💻</div>
+                            <div class="requirement-content">
+                                <strong>Pratique</strong>
+                                <span>30 min/jour recommandé</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="levels-section">
+                    <!-- Niveau A1 -->
+                    <div class="level-group">
+                        <div class="level-header" onclick="toggleLessons('fr-a1')">
+                            <h4>🌱 Niveau A1 - Découverte</h4>
+                            <p>Premiers pas en français - 15 leçons</p>
+                            <div class="level-meta">
+                                <span>📖 Durée: 10-15h</span>
+                                <span>📝 90 exercices</span>
+                                <span>🎯 Objectif: Communication basique</span>
+                            </div>
+                        </div>
+                        <div id="fr-a1" class="lessons-content">
+                            <div class="lesson-card">
+                                <div class="lesson-header">
+                                    <h5 class="lesson-title">L'alphabet et la prononciation</h5>
+                                    <span class="lesson-number">Leçon 1</span>
+                                </div>
+                                <p class="lesson-content">
+                                    Découvrez l'alphabet français, les 26 lettres avec leur prononciation correcte. Apprenez les accents (é, è, ê, à, ù) et la cédille (ç). Maîtrisez les liaisons et les lettres muettes.
+                                </p>
+                                <div class="lesson-objectives">
+                                    <h5>🎯 Objectifs d'apprentissage:</h5>
+                                    <ul>
+                                        <li>Épeler correctement en français</li>
+                                        <li>Reconnaître et prononcer tous les sons</li>
+                                        <li>Utiliser les accents appropriés</li>
+                                        <li>Comprendre les règles de liaison</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="lesson-card">
+                                <div class="lesson-header">
+                                    <h5 class="lesson-title">Les salutations et présentations</h5>
+                                    <span class="lesson-number">Leçon 2</span>
+                                </div>
+                                <p class="lesson-content">
+                                    Apprenez à vous présenter en français: "Je m'appelle...", "Comment allez-vous?". Découvrez les expressions formelles (Bonjour, Bonsoir) et informelles (Salut, Ça va?).
+                                </p>
+                                <div class="lesson-objectives">
+                                    <h5>🎯 Objectifs d'apprentissage:</h5>
+                                    <ul>
+                                        <li>Se présenter correctement</li>
+                                        <li>Utiliser les salutations appropriées</li>
+                                        <li>Distinguer formel et informel</li>
+                                        <li>Demander et donner des informations personnelles</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="lesson-card">
+                                <div class="lesson-header">
+                                    <h5 class="lesson-title">Les nombres de 0 à 100</h5>
+                                    <span class="lesson-number">Leçon 3</span>
+                                </div>
+                                <p class="lesson-content">
+                                    Maîtrisez les nombres cardinaux français: 0-20, dizaines (30-100). Apprenez les particularités (soixante-dix=70, quatre-vingts=80, quatre-vingt-dix=90).
+                                </p>
+                                <div class="lesson-objectives">
+                                    <h5>🎯 Objectifs d'apprentissage:</h5>
+                                    <ul>
+                                        <li>Compter de 0 à 100 en français</li>
+                                        <li>Comprendre le système vigesimal</li>
+                                        <li>Utiliser les nombres au quotidien</li>
+                                        <li>Donner son numéro de téléphone</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Niveau B1 -->
+                    <div class="level-group">
+                        <div class="level-header" onclick="toggleLessons('fr-b1')">
+                            <h4>🌳 Niveau B1 - Seuil</h4>
+                            <p>Communication indépendante - 25 leçons</p>
+                            <div class="level-meta">
+                                <span>📖 Durée: 25-35h</span>
+                                <span>📝 150 exercices</span>
+                                <span>🎯 Objectif: Autonomie communicative</span>
+                            </div>
+                        </div>
+                        <div id="fr-b1" class="lessons-content">
+                            <div class="lesson-card">
+                                <div class="lesson-header">
+                                    <h5 class="lesson-title">Le passé composé et l'imparfait</h5>
+                                    <span class="lesson-number">Leçon 1</span>
+                                </div>
+                                <p class="lesson-content">
+                                    Maîtrisez les deux temps du passé français. Le passé composé (action ponctuelle: "J'ai mangé") et l'imparfait (description, habitude: "Je mangeais"). Apprenez à choisir le bon temps.
+                                </p>
+                                <div class="lesson-objectives">
+                                    <h5>🎯 Objectifs d'apprentissage:</h5>
+                                    <ul>
+                                        <li>Former le passé composé avec avoir/être</li>
+                                        <li>Conjuguer l'imparfait correctement</li>
+                                        <li>Distinguer les deux temps du passé</li>
+                                        <li>Raconter une histoire au passé</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ESPAÑOL -->
+            <div id="espagnol" class="language-section">
+                <div class="language-header-main">
+                    <div class="language-flag-huge">🇪🇸</div>
+                    <div class="language-title-group">
+                        <h2>Español</h2>
+                        <p class="language-subtitle">Langue Espagnole - De A1 à C2</p>
+                    </div>
+                </div>
+
+                <div class="requirements-section">
+                    <h3>📋 Prérequis et Objectifs</h3>
+                    <div class="requirements-grid">
+                        <div class="requirement-item">
+                            <div class="requirement-icon">🎯</div>
+                            <div class="requirement-content">
+                                <strong>Objectif Global</strong>
+                                <span>Parler espagnol couramment</span>
+                            </div>
+                        </div>
+                        <div class="requirement-item">
+                            <div class="requirement-icon">⏱️</div>
+                            <div class="requirement-content">
+                                <strong>Durée Totale</strong>
+                                <span>250-350 heures d'apprentissage</span>
+                            </div>
+                        </div>
+                        <div class="requirement-item">
+                            <div class="requirement-icon">🌎</div>
+                            <div class="requirement-content">
+                                <strong>Variantes</strong>
+                                <span>Espagnol d'Espagne et d'Amérique Latine</span>
+                            </div>
+                        </div>
+                        <div class="requirement-item">
+                            <div class="requirement-icon">💻</div>
+                            <div class="requirement-content">
+                                <strong>Pratique</strong>
+                                <span>30 min/jour recommandé</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="levels-section">
+                    <div class="level-group">
+                        <div class="level-header" onclick="toggleLessons('es-a1')">
+                            <h4>🌱 Nivel A1 - Acceso</h4>
+                            <p>Premiers pas en espagnol - 15 leçons</p>
+                            <div class="level-meta">
+                                <span>📖 Durée: 10-15h</span>
+                                <span>📝 90 exercices</span>
+                            </div>
+                        </div>
+                        <div id="es-a1" class="lessons-content">
+                            <div class="lesson-card">
+                                <div class="lesson-header">
+                                    <h5 class="lesson-title">El alfabeto español y pronunciación</h5>
+                                    <span class="lesson-number">Lección 1</span>
+                                </div>
+                                <p class="lesson-content">
+                                    L'alphabet espagnol a 27 lettres (avec ñ). Apprenez la prononciation des voyelles (a, e, i, o, u), des consonnes spéciales (j, ll, ñ, rr) et l'accent tonique.
+                                </p>
+                                <div class="lesson-objectives">
+                                    <h5>🎯 Objectifs d'apprentissage:</h5>
+                                    <ul>
+                                        <li>Maîtriser l'alphabet espagnol complet</li>
+                                        <li>Prononcer correctement le "ñ" et le "rr"</li>
+                                        <li>Comprendre l'accent tonique</li>
+                                        <li>Lire des mots simples en espagnol</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="lesson-card">
+                                <div class="lesson-header">
+                                    <h5 class="lesson-title">Saludos y presentaciones</h5>
+                                    <span class="lesson-number">Lección 2</span>
+                                </div>
+                                <p class="lesson-content">
+                                    Salutations essentielles: "Hola", "Buenos días", "¿Cómo estás?", "Me llamo...". Distinction entre "tú" (informel) et "usted" (formel).
+                                </p>
+                                <div class="lesson-objectives">
+                                    <h5>🎯 Objectifs d'apprentissage:</h5>
+                                    <ul>
+                                        <li>Se présenter en espagnol</li>
+                                        <li>Utiliser tú vs usted correctement</li>
+                                        <li>Saluer selon le moment de la journée</li>
+                                        <li>Poser des questions simples</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ARABE -->
+            <div id="arabe" class="language-section">
+                <div class="language-header-main">
+                    <div class="language-flag-huge">🇸🇦</div>
+                    <div class="language-title-group">
+                        <h2>العربية</h2>
+                        <p class="language-subtitle">Langue Arabe Standard Moderne - De A1 à C2</p>
+                    </div>
+                </div>
+
+                <div class="requirements-section">
+                    <h3>📋 Prérequis et Objectifs</h3>
+                    <div class="requirements-grid">
+                        <div class="requirement-item">
+                            <div class="requirement-icon">🎯</div>
+                            <div class="requirement-content">
+                                <strong>Objectif Global</strong>
+                                <span>Lire, écrire et parler l'arabe</span>
+                            </div>
+                        </div>
+                        <div class="requirement-item">
+                            <div class="requirement-icon">✍️</div>
+                            <div class="requirement-content">
+                                <strong>Écriture</strong>
+                                <span>Maîtriser l'alphabet arabe (28 lettres)</span>
+                            </div>
+                        </div>
+                        <div class="requirement-item">
+                            <div class="requirement-icon">📖</div>
+                            <div class="requirement-content">
+                                <strong>Lecture</strong>
+                                <span>De droite à gauche</span>
+                            </div>
+                        </div>
+                        <div class="requirement-item">
+                            <div class="requirement-icon">⏱️</div>
+                            <div class="requirement-content">
+                                <strong>Durée</strong>
+                                <span>300-400 heures d'apprentissage</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="levels-section">
+                    <div class="level-group">
+                        <div class="level-header" onclick="toggleLessons('ar-a1')">
+                            <h4>🌱 المستوى A1</h4>
+                            <p>Premiers pas en arabe - 15 leçons</p>
+                            <div class="level-meta">
+                                <span>📖 Durée: 15-20h</span>
+                                <span>📝 100 exercices</span>
+                            </div>
+                        </div>
+                        <div id="ar-a1" class="lessons-content">
+                            <div class="lesson-card">
+                                <div class="lesson-header">
+                                    <h5 class="lesson-title">الحروف العربية - L'alphabet arabe</h5>
+                                    <span class="lesson-number">الدرس 1</span>
+                                </div>
+                                <p class="lesson-content">
+                                    L'alphabet arabe comprend 28 lettres, toutes consonnes. Les voyelles courtes (fatha, damma, kasra) et longues (alif, waw, ya). Chaque lettre a 4 formes selon sa position.
+                                </p>
+                                <div class="lesson-objectives">
+                                    <h5>🎯 Objectifs d'apprentissage:</h5>
+                                    <ul>
+                                        <li>Reconnaître les 28 lettres arabes</li>
+                                        <li>Écrire les lettres dans leurs 4 formes</li>
+                                        <li>Comprendre le système de voyelles</li>
+                                        <li>Lire des mots simples</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="lesson-card">
+                                <div class="lesson-header">
+                                    <h5 class="lesson-title">التحيات - Les salutations</h5>
+                                    <span class="lesson-number">الدرس 2</span>
+                                </div>
+                                <p class="lesson-content">
+                                    Salutations essentielles: السلام عليكم (As-salamu alaykum), صباح الخير (Sabah al-khayr), مساء الخير (Masa' al-khayr). Se présenter: اسمي... (Ismi...).
+                                </p>
+                                <div class="lesson-objectives">
+                                    <h5>🎯 Objectifs d'apprentissage:</h5>
+                                    <ul>
+                                        <li>Saluer en arabe standard</li>
+                                        <li>Se présenter correctement</li>
+                                        <li>Répondre aux salutations</li>
+                                        <li>Utiliser les formules de politesse</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ENGLISH -->
+            <div id="anglais" class="language-section">
+                <div class="language-header-main">
+                    <div class="language-flag-huge">🇬🇧</div>
+                    <div class="language-title-group">
+                        <h2>English</h2>
+                        <p class="language-subtitle">Langue Anglaise - De A1 à C2</p>
+                    </div>
+                </div>
+
+                <div class="requirements-section">
+                    <h3>📋 Prerequisites and Objectives</h3>
+                    <div class="requirements-grid">
+                        <div class="requirement-item">
+                            <div class="requirement-icon">🎯</div>
+                            <div class="requirement-content">
+                                <strong>Objectif Global</strong>
+                                <span>Maîtriser l'anglais académique et professionnel</span>
+                            </div>
+                        </div>
+                        <div class="requirement-item">
+                            <div class="requirement-icon">⏱️</div>
+                            <div class="requirement-content">
+                                <strong>Durée</strong>
+                                <span>250-350 heures d'apprentissage</span>
+                            </div>
+                        </div>
+                        <div class="requirement-item">
+                            <div class="requirement-icon">🌍</div>
+                            <div class="requirement-content">
+                                <strong>Variantes</strong>
+                                <span>British et American English</span>
+                            </div>
+                        </div>
+                        <div class="requirement-item">
+                            <div class="requirement-icon">💼</div>
+                            <div class="requirement-content">
+                                <strong>Focus</strong>
+                                <span>Business et Academic English</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="levels-section">
+                    <div class="level-group">
+                        <div class="level-header" onclick="toggleLessons('en-a1')">
+                            <h4>🌱 Level A1 - Beginner</h4>
+                            <p>First steps in English - 15 lessons</p>
+                            <div class="level-meta">
+                                <span>📖 Durée: 10-15h</span>
+                                <span>📝 90 exercices</span>
+                            </div>
+                        </div>
+                        <div id="en-a1" class="lessons-content">
+                            <div class="lesson-card">
+                                <div class="lesson-header">
+                                    <h5 class="lesson-title">The English Alphabet and Pronunciation</h5>
+                                    <span class="lesson-number">Lesson 1</span>
+                                </div>
+                                <p class="lesson-content">
+                                    26 lettres, voyelles courtes et longues. Phonèmes anglais uniques: "th" (think/this), "r" américain vs britannique. L'accent tonique et l'intonation.
+                                </p>
+                                <div class="lesson-objectives">
+                                    <h5>🎯 Learning Objectives:</h5>
+                                    <ul>
+                                        <li>Master English pronunciation</li>
+                                        <li>Understand phonetic symbols</li>
+                                        <li>Distinguish British and American accents</li>
+                                        <li>Use correct word stress</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="lesson-card">
+                                <div class="lesson-header">
+                                    <h5 class="lesson-title">Greetings and Introductions</h5>
+                                    <span class="lesson-number">Lesson 2</span>
+                                </div>
+                                <p class="lesson-content">
+                                    Basic greetings: "Hello", "Hi", "Good morning/afternoon/evening". Introductions: "My name is...", "I'm from...", "Nice to meet you".
+                                </p>
+                                <div class="lesson-objectives">
+                                    <h5>🎯 Learning Objectives:</h5>
+                                    <ul>
+                                        <li>Introduce yourself in English</li>
+                                        <li>Use appropriate greetings</li>
+                                        <li>Ask and answer basic questions</li>
+                                        <li>Understand formal vs informal speech</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DEUTSCH -->
+            <div id="allemand" class="language-section">
+                <div class="language-header-main">
+                    <div class="language-flag-huge">🇩🇪</div>
+                    <div class="language-title-group">
+                        <h2>Deutsch</h2>
+                        <p class="language-subtitle">Langue Allemande - De A1 à C2</p>
+                    </div>
+                </div>
+
+                <div class="requirements-section">
+                    <h3>📋 Voraussetzungen und Ziele</h3>
+                    <div class="requirements-grid">
+                        <div class="requirement-item">
+                            <div class="requirement-icon">🎯</div>
+                            <div class="requirement-content">
+                                <strong>Objectif Global</strong>
+                                <span>Maîtriser l'allemand académique</span>
+                            </div>
+                        </div>
+                        <div class="requirement-item">
+                            <div class="requirement-icon">⏱️</div>
+                            <div class="requirement-content">
+                                <strong>Durée</strong>
+                                <span>300-400 heures d'apprentissage</span>
+                            </div>
+                        </div>
+                        <div class="requirement-item">
+                            <div class="requirement-icon">📚</div>
+                            <div class="requirement-content">
+                                <strong>Difficulté</strong>
+                                <span>Grammaire complexe avec 4 cas</span>
+                            </div>
+                        </div>
+                        <div class="requirement-item">
+                            <div class="requirement-icon">💼</div>
+                            <div class="requirement-content">
+                                <strong>Focus</strong>
+                                <span>Allemand technique et scientifique</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="levels-section">
+                    <div class="level-group">
+                        <div class="level-header" onclick="toggleLessons('de-a1')">
+                            <h4>🌱 Niveau A1 - Anfänger</h4>
+                            <p>Premiers pas en allemand - 15 leçons</p>
+                            <div class="level-meta">
+                                <span>📖 Durée: 10-15h</span>
+                                <span>📝 90 exercices</span>
+                            </div>
+                        </div>
+                        <div id="de-a1" class="lessons-content">
+                            <div class="lesson-card">
+                                <div class="lesson-header">
+                                    <h5 class="lesson-title">Das deutsche Alphabet</h5>
+                                    <span class="lesson-number">Lektion 1</span>
+                                </div>
+                                <p class="lesson-content">
+                                    26 lettres + 4 spéciales (ä, ö, ü, ß). Prononciation des Umlauts et du "ch". Les consonnes dures (k, p, t) et l'accent tonique généralement sur la première syllabe.
+                                </p>
+                                <div class="lesson-objectives">
+                                    <h5>🎯 Lernziele:</h5>
+                                    <ul>
+                                        <li>Maîtriser les Umlauts (ä, ö, ü)</li>
+                                        <li>Prononcer le ß (eszett) correctement</li>
+                                        <li>Comprendre l'accent tonique allemand</li>
+                                        <li>Épeler des mots en allemand</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="lesson-card">
+                                <div class="lesson-header">
+                                    <h5 class="lesson-title">Begrüßungen und Vorstellungen</h5>
+                                    <span class="lesson-number">Lektion 2</span>
+                                </div>
+                                <p class="lesson-content">
+                                    Salutations: "Guten Tag", "Guten Morgen", "Wie geht es Ihnen?". Présentations: "Ich heiße...", "Ich komme aus...". Distinction Sie/du (formel/informel).
+                                </p>
+                                <div class="lesson-objectives">
+                                    <h5>🎯 Lernziele:</h5>
+                                    <ul>
+                                        <li>Se présenter en allemand</li>
+                                        <li>Utiliser Sie vs du correctement</li>
+                                        <li>Conjuguer les verbes de base</li>
+                                        <li>Comprendre les cas (Nominatif)</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <p style="font-size: 1.2rem; margin-bottom: 1rem;">
+                © 2025 PolyglotAcademy - Tous droits réservés
+            </p>
+            <p><strong>Créé par BETTAHAR Abdelkrim</strong></p>
+            <p>Université de Mostaganem (Abdelhamid Ibn Badis)</p>
+            <p>Département des langues étrangères - Langue française</p>
+            <p style="margin-top: 1rem;">Mémoire de Master en Sciences du Langage - 2025</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleLessons(levelId) {
+            const content = document.getElementById(levelId);
+            const allContents = document.querySelectorAll('.lessons-content');
+
+            allContents.forEach(c => {
+                if (c.id !== levelId) {
+                    c.classList.remove('active');
+                }
+            });
+
+            content.classList.toggle('active');
+        }
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
